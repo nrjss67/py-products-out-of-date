@@ -28,7 +28,12 @@ def products() -> dict:
 @pytest.mark.parametrize(
     "expiration_date,expected",
     [
-        (date(2022, 2, 9), ["chicken", "duck"])
+        (date(2022, 2, 1), []),
+        (date(2022, 2, 2), ["duck"]),
+        (date(2022, 2, 5), ["duck"]),
+        (date(2022, 2, 6), ["chicken", "duck"]),
+        (date(2022, 2, 10), ["chicken", "duck"]),
+        (date(2022, 2, 11), ["salmon", "chicken", "duck"])
     ]
 )
 @mock.patch("app.main.datetime.date")
